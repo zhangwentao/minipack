@@ -12,14 +12,14 @@ function createGraph(entryAsset) {
 
 function task() {
   const asset = assetsQueue[pointer];
-  const depMap = {};
-  asset.depMap = depMap; 
+  const mapping = {};
+  asset.mapping = mapping; 
   const { filename, dependencies } = asset;
   dependencies.forEach( dep => {
     const dirname = path.dirname(filename);
     const realPath = path.resolve(dirname, dep);
     const childAsset = createAssets(realPath);
-    depMap[dep] = childAsset.id;
+    mapping[dep] = childAsset.id;
     assetsQueue.push(childAsset)
   });
   pointer+=1;

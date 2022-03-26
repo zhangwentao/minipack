@@ -4,5 +4,5 @@ function doSome() {
 }
 
 module.exports = {
-  doSome;
+  doSome
 }
